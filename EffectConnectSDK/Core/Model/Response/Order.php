@@ -61,6 +61,10 @@
          * @var Tag[] $_tags
          */
         private $_tags              = [];
+        /**
+         * @var OrderAttribute[] $_attributes
+         */
+        private $_attributes        = [];
 
         /**
          * OrderReadResponseContainer constructor.
@@ -104,6 +108,11 @@
                 foreach (Payload::extract($payload, 'tags', true) as $tag)
                 {
                     $this->_tags[] = new Tag((string)$tag);
+                }
+            }
+            if (Payload::contains($payload, 'attributes')){
+                foreach (Payload::extract($payload, 'attributes', true) as $attribute){
+                    $this->_attributes[] = new OrderAttribute($attribute);
                 }
             }
         }
@@ -202,5 +211,13 @@
         public function getTags()
         {
             return $this->_tags;
+        }
+
+        /**
+         * @return OrderAttribute[]
+         */
+        public function getAttributes()
+        {
+            return $this->_attributes;
         }
     }
