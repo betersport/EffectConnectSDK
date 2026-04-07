@@ -21,11 +21,12 @@ final class OrderAttribute
             return;
         }
         $this->_code = Payload::extract($payload, 'code');
+
         if (Payload::contains($payload, 'values'))
         {
             foreach (Payload::extract($payload, 'values', true) as $value)
             {
-                $this->_values[] = new AttributeValue($value);
+                $this->_values[] = new AttributeValue((string)$value);
             }
         }
     }

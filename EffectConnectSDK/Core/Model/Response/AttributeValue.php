@@ -2,8 +2,6 @@
 
 namespace EffectConnect\PHPSdk\Core\Model\Response;
 
-use EffectConnect\PHPSdk\Core\Helper\Payload;
-
 final class AttributeValue
 {
     /**
@@ -13,11 +11,10 @@ final class AttributeValue
 
     public function __construct($payload)
     {
-
         if ($payload === null) {
             return;
         }
-        $this->_value = Payload::extract($payload, 'value');
+        $this->_value = $payload;
     }
 
     /**
