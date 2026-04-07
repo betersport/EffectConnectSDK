@@ -13,7 +13,7 @@ final class OrderAttribute
     /**
      * @var AttributeValue[]
      */
-    private $_values;
+    private $_values = [];
 
     public function __construct($payload)
     {
