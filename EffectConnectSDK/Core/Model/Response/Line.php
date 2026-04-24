@@ -144,4 +144,12 @@ final class Line
     {
         return $this->_product;
     }
+
+    /**
+     * @return OrderAttribute[]
+     */
+    public function getAttributes()
+    {
+        return $this->_attributes;
+    }
 }
